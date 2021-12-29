@@ -23,6 +23,18 @@ export class Submarine {
     this.depth -= value;
   }
 
+  private increaseAim(value: number) {
+    this.aim += value;
+  }
+
+  private decreaseAim(value: number) {
+    this.aim -= value;
+  }
+
+  private increaseDepthWithAim(value: number) {
+    this.depth += this.aim * value;
+  }
+
   getPosition(): any {
     return [this.horizontalPosition, this.depth];
   }
@@ -56,29 +68,5 @@ export class Submarine {
       this.decreaseAim(command.getValue());
     }
 
-  }
-
-  forward(value: number) {
-    this.increaseHorizontalPosition(value);
-    this.increaseDepthWithAim(value);
-  }
-
-  down(value: number) {
-    this.increaseAim(value);
-  }
-
-  up(value: number) {
-    this.decreaseAim(value);
-  }
-  private increaseAim(value: number) {
-    this.aim += value;
-  }
-
-  private decreaseAim(value: number) {
-    this.aim -= value;
-  }
-
-  private increaseDepthWithAim(value: number) {
-    this.depth += this.aim * value;
   }
 }
