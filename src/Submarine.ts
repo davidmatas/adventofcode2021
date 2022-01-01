@@ -1,14 +1,17 @@
 import { Command } from './Command';
+import { DiagnosticReport } from './DiagnosticReport';
 
 export class Submarine {
   private horizontalPosition: number;
   private depth: number;
   private aim: number;
+  private diagnosticReport?: DiagnosticReport;
 
   constructor() {
     this.horizontalPosition = 0;
     this.depth = 0;
     this.aim = 0;
+    this.diagnosticReport = undefined
   }
 
   private increaseHorizontalPosition(value: number) {
@@ -69,4 +72,14 @@ export class Submarine {
     }
 
   }
+
+  powerConsumption(): number {
+    return this.diagnosticReport!.getGammaRateDecimal() * this.diagnosticReport!.getEpsilonRateDecimal()
+  }
+
+  generateDiagnosticReport(diagnosticReport: string) {
+    this.diagnosticReport = new DiagnosticReport(diagnosticReport);
+  }
 }
+
+
