@@ -20,17 +20,8 @@ describe('DiagnosticReport', () => {
 
     const diagnosticReport = new DiagnosticReport(diagnosticString);
 
-    expect(diagnosticReport.getGammaRate()).toEqual('10110')
-    expect(diagnosticReport.getGammaRateDecimal()).toEqual(22)
-
-    expect(diagnosticReport.getEpsilonRate()).toEqual('01001')
-    expect(diagnosticReport.getEpsilonRateDecimal()).toEqual(9)
-
-    expect(diagnosticReport.getOxygenGeneratorRate()).toEqual('10111');
-    expect(diagnosticReport.getOxygenGeneratorRateDecimal()).toEqual(23);
-
-    expect(diagnosticReport.getCo2ScrubberRate()).toEqual('01010');
-    expect(diagnosticReport.getCo2ScrubberRateDecimal()).toEqual(10);
+    expect(diagnosticReport.getPowerConsumption()).toEqual(198);
+    expect(diagnosticReport.getLifeSupport()).toEqual(230);
   })
 })
 

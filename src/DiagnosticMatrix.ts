@@ -3,18 +3,17 @@ import { BitsCollection } from './BitsCollection';
 
 export class DiagnosticMatrix {
   static buildFromDiagnosticMatrixValue(diagnosticMatrix: Array<Array<Bit>>) {
-    const diagnosticString = diagnosticMatrix.map(row => {
-      const rowString = row.map(bit => bit.getValue()).join('');
-      return rowString;
-    }).join('\n');
-    return DiagnosticMatrix.buildFromString(diagnosticString);
+    return new DiagnosticMatrix(diagnosticMatrix)
   }
 
   static buildFromString(diagnosticString: string) {
-    const diagnosticMatrix = diagnosticString.split('\n').filter(line => line).map((line) => {
-      return line.split('').map((value) => {
-        return new Bit(value as '0' | '1');
-      }) as Array<Bit>;
+    const diagnosticMatrix = diagnosticString
+      .split('\n')
+      .filter(line => line)
+      .map((line) => {
+        return line
+          .split('')
+          .map((value) => new Bit(value as '0' | '1'));
     });
     return new DiagnosticMatrix(diagnosticMatrix);
   }

@@ -74,11 +74,11 @@ export class Submarine {
   }
 
   powerConsumption(): number {
-    return this.diagnosticReport!.getGammaRateDecimal() * this.diagnosticReport!.getEpsilonRateDecimal()
+    return this.diagnosticReport!.getPowerConsumption()
   }
 
   lifeSupport(): number {
-    return this.diagnosticReport!.getOxygenGeneratorRateDecimal() * this.diagnosticReport!.getCo2ScrubberRateDecimal()
+    return this.diagnosticReport!.getLifeSupport()
   }
 
   generateDiagnosticReport(diagnosticReport: string) {
