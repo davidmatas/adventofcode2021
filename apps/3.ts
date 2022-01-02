@@ -9,4 +9,5 @@ promise.then((result) => {
   submarine.generateDiagnosticReport(result);
 
   console.log('Consumption is ', submarine.powerConsumption())
+  console.log('Life support is ', submarine.lifeSupport())
 })

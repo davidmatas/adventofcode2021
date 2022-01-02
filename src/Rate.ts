@@ -1,9 +1,9 @@
-import { PositionBits } from './PositionBits';
+import { BitsCollection } from './BitsCollection';
 
 export abstract class Rate {
   private value: string;
 
-  constructor(rateBits: Array<PositionBits>, rule: (bit: PositionBits) => 0 | 1) {
+  constructor(rateBits: Array<BitsCollection>, rule: (bit: BitsCollection) => string) {
     this.value = rateBits.map(rule).join('');
   }
 

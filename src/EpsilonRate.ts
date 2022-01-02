@@ -1,16 +1,17 @@
-import { PositionBits } from './PositionBits';
+import { Bit } from './Bit';
+import { BitsCollection } from './BitsCollection';
 import { Rate } from './Rate';
 
 export class EpsilonRate extends Rate {
   private static rule() {
-    return (positionBits: PositionBits) => {
-      if (positionBits.values.get('0')! < positionBits.values.get('1')!)
-        return 0;
+    return (positionBits: BitsCollection) => {
+      if (positionBits.get(Bit.zero)! < positionBits.get(Bit.one)!)
+        return Bit.zero;
       else
-        return 1;
+        return Bit.one;
     };
   }
-  constructor(rateBits: Array<PositionBits>) {
+  constructor(rateBits: Array<BitsCollection>) {
     super(rateBits, EpsilonRate.rule());
 
   }

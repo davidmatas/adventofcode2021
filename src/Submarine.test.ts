@@ -52,6 +52,29 @@ describe('Submarine', () => {
     expect(submarine.powerConsumption()).toBe(198)
   })
 
+  it('can read life support', () => {
+    const submarine = new Submarine();
+
+    const diagnosticReport = undent(`
+      00100
+      11110
+      10110
+      10111
+      10101
+      01111
+      00111
+      11100
+      10000
+      11001
+      00010
+      01010
+    `);
+
+    submarine.generateDiagnosticReport(diagnosticReport);
+
+    expect(submarine.lifeSupport()).toBe(230)
+  })
+
 })
 
 
